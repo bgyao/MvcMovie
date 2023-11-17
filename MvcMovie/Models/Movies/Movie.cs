@@ -20,10 +20,9 @@ public class Movie
     [Required(ErrorMessage = "Please enter the genre of the movie.")] //not covered by the tutorial. self-study
     public string? Genre { get; set; }
 
+    
+    [Range(1,100), DataType(DataType.Currency), Column(TypeName = "decimal(18, 2)")] //can also write this way
     //[Required] not needed, as datatypes int, decimal, float, and DateTime are inherently required
-    [Range(1,100)]
-    [DataType(DataType.Currency)]
-    [Column(TypeName = "decimal(18, 2)")]
     public decimal Price { get; set; }
 
     [RegularExpression(@"^[A-Z]+[a-zA-Z0-9""'\s-]*$")] // accept alphanumeric and special characters. PG-13 for example
